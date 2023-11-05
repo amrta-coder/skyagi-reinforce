@@ -17,7 +17,7 @@ cli = typer.Typer()
 console = Console()
 
 #######################################################################################
-# Config CLI
+# config CLI
 
 config_cli = typer.Typer()
 
