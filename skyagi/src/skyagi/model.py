@@ -22,7 +22,7 @@ embedding_type_to_cls_dict: Dict[str, Type[Embeddings]] = {
 #                                LLM/Chat models                               #
 # ---------------------------------------------------------------------------- #
 def load_llm_from_config(config: LLMSettings) -> BaseLanguageModel:
-    """Load LLM from Config."""
+    """Load LLM from config."""
     config_dict = config.dict()
     config_type = config_dict.pop("type")
 
@@ -42,7 +42,7 @@ def get_all_llms() -> List[str]:
 #                               Embeddings models                              #
 # ---------------------------------------------------------------------------- #
 def load_embedding_from_config(config: EmbeddingSettings) -> Embeddings:
-    """Load Embedding from Config."""
+    """Load Embedding from config."""
     config_dict = config.dict()
     config_type = config_dict.pop("type")
 
