@@ -84,6 +84,14 @@ class Settings(BaseSettings):
 # ---------------------------------------------------------------------------- #
 #                             Preset configurations                            #
 # ---------------------------------------------------------------------------- #
+class OpenAIGPT4Turbo1106Settings(ModelSettings):
+    type = "openai-gpt-4-turbo-1106"
+    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500)
+    llm = LLMSettings(type="chatopenai", model="gpt-4-1106-preview", max_tokens=1500, request_timeout=300)
+    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, temperature=0.5, request_timeout=120)
+    embedding = EmbeddingSettings(type="openaiembeddings")
+
+
 class OpenAIGPT40613Settings(ModelSettings):
     type = "openai-gpt-4-0613"
     # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500)
@@ -112,6 +120,7 @@ class OpenAIGPT3_5TextDavinci003Settings(ModelSettings):
 
 # ------------------------- Model settings registry ------------------------ #
 model_setting_type_to_cls_dict: Dict[str, Type[ModelSettings]] = {
+    "openai-gpt-4-turbo-1106": OpenAIGPT4Turbo1106Settings,
     "openai-gpt-4-0613": OpenAIGPT40613Settings,
     "openai-gpt-4": OpenAIGPT4Settings,
     "openai-gpt-3.5-turbo": OpenAIGPT3_5TurboSettings,
