@@ -84,38 +84,37 @@ class Settings(BaseSettings):
 # ---------------------------------------------------------------------------- #
 #                             Preset configurations                            #
 # ---------------------------------------------------------------------------- #
-class OpenAIGPT40613Settings(ModelSettings):
-    type = "openai-gpt-4-0613"
-    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500)
-    llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, request_timeout=300)
-    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, temperature=0.5, request_timeout=120)
+class OpenAIGPT4TurboSettings(ModelSettings):
+    type = "gpt-4-0125-preview"
+    llm = LLMSettings(type="chatopenai", model="gpt-4-0125-preview", max_tokens=1500, request_timeout=300)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
 class OpenAIGPT4Settings(ModelSettings):
     type = "openai-gpt-4"
     llm = LLMSettings(type="chatopenai", model="gpt-4", max_tokens=1500)
+    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, temperature=0.5, request_timeout=120)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
 class OpenAIGPT3_5TurboSettings(ModelSettings):
-    type = "openai-gpt-3.5-turbo"
-    llm = LLMSettings(type="chatopenai", model="gpt-3.5-turbo", max_tokens=1500)
+    type = "gpt-3.5-turbo-0125"
+    llm = LLMSettings(type="chatopenai", model="gpt-3.5-turbo-0125", max_tokens=16385)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
-class OpenAIGPT3_5TextDavinci003Settings(ModelSettings):
+class OpenAITextEmbedding3LargeSettings(ModelSettings):
     type = "openai-gpt-3.5-text-davinci-003"
-    llm = LLMSettings(type="openai", model_name="text-davinci-003", max_tokens=1500)
+    llm = LLMSettings(type="openai", model_name="text-embedding-3-large", max_tokens=1500)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
 # ------------------------- Model settings registry ------------------------ #
 model_setting_type_to_cls_dict: Dict[str, Type[ModelSettings]] = {
-    "openai-gpt-4-0613": OpenAIGPT40613Settings,
+    "openai-gpt-4-turbo": OpenAIGPT4TurboSettings,
     "openai-gpt-4": OpenAIGPT4Settings,
     "openai-gpt-3.5-turbo": OpenAIGPT3_5TurboSettings,
-    "openai-gpt-3.5-text-davinci-003": OpenAIGPT3_5TextDavinci003Settings,
+    "openai-text-embedding-3-large": OpenAITextEmbedding3LargeSettings,
 }
 
 

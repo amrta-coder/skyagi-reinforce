@@ -13,7 +13,7 @@ def verify_openai_token(token: str) -> str:
     openai.api_key = token
     try:
         openai.Completion.create(
-            model="text-ada-001",
+            model="davinci-002",
             prompt="Hello",
             temperature=0,
             max_tokens=10,
