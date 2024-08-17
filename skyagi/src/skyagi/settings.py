@@ -87,17 +87,17 @@ class Settings(BaseSettings):
 class OpenAIGPT4TurboSettings(ModelSettings):
     type = "gpt-4-0125-preview"
     llm = LLMSettings(type="chatopenai", model="gpt-4-0125-preview", max_tokens=1500, request_timeout=300)
+    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, temperature=0.5, request_timeout=120)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
 class OpenAIGPT4Settings(ModelSettings):
     type = "openai-gpt-4"
     llm = LLMSettings(type="chatopenai", model="gpt-4", max_tokens=1500)
-    # llm = LLMSettings(type="chatopenai", model="gpt-4-0613", max_tokens=1500, temperature=0.5, request_timeout=120)
     embedding = EmbeddingSettings(type="openaiembeddings")
 
 
-class OpenAIGPT3_5TurboSettings(ModelSettings):
+class OpenAIGPT35TurboSettings(ModelSettings):
     type = "gpt-3.5-turbo-0125"
     llm = LLMSettings(type="chatopenai", model="gpt-3.5-turbo-0125", max_tokens=16385)
     embedding = EmbeddingSettings(type="openaiembeddings")
@@ -113,7 +113,7 @@ class OpenAITextEmbedding3LargeSettings(ModelSettings):
 model_setting_type_to_cls_dict: Dict[str, Type[ModelSettings]] = {
     "openai-gpt-4-turbo": OpenAIGPT4TurboSettings,
     "openai-gpt-4": OpenAIGPT4Settings,
-    "openai-gpt-3.5-turbo": OpenAIGPT3_5TurboSettings,
+    "openai-gpt-3.5-turbo": OpenAIGPT35TurboSettings,
     "openai-text-embedding-3-large": OpenAITextEmbedding3LargeSettings,
 }
 
